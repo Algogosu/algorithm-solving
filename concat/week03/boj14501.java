@@ -3,6 +3,12 @@
 import java.io.*;
 import java.util.*;
 
+/*
+1. 각 상담 날짜마다 상담을 할 경우와 하지 않을 경우의 최대 수익을 계산하여 메모이제이션 배열에 저장합니다.
+2. `memo(i + T[i]) = max(memo(i + T[i]), memo(i) + P[i])`를 사용해 상담을 하는 경우의 최대 수익을 갱신합니다.
+3. `memo(i + 1) = max(memo(i + 1), memo(i))`를 사용해 상담을 하지 않는 경우의 최대 수익을 갱신하여 최종 최대 수익을 구합니다.
+*/
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
