@@ -7,13 +7,13 @@ namespace BOJ
         static void Main()
         {
             int n = int.Parse(Console.ReadLine());
-            int[,] friends = new int[n, n];
+            bool[,] friends = new bool[n, n];
             for (int i = 0; i < n; i++)
             {
-                string[] input = Console.ReadLine().Split(' ');
+                string input = Console.ReadLine();
                 for (int j = 0; j < n; j++)
                 {
-                    friends[i, j] = int.Parse(input[j]);
+                    friends[i, j] = input[j] == 'Y';
                 }
             }
 
@@ -24,7 +24,7 @@ namespace BOJ
                 for (int j = 0; j < n; j++)
                 {
                     if (i == j) continue;
-                    if (friends[i, j] == 1 || friends[j].Where((x, k) => x == 1 && friends[i, k] == 1).Any())
+                    if (friends[i, j] || Enumerable.Range(0, n).Any(k => k != i && k != j && friends[i, k] && friends[k, j]))
                     {
                         count++;
                     }
